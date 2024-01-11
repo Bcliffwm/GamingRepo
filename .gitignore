@@ -6,3 +6,7 @@
 *.json
 *.sqlite
 /.vs/GamingRepo
+/RPG Application/rpg_env/Lib/site-packages
+/RPG Application/rpg_env/Scripts
+/.vs/RPG Application/v16
+/RPG Application/rpg_env
