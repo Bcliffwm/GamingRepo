@@ -10,3 +10,5 @@
 /RPG Application/rpg_env/Scripts
 /.vs/RPG Application/v16
 /RPG Application/rpg_env
+/env
+/RPG Application/src/__pycache__

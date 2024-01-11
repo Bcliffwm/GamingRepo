@@ -1,21 +1,25 @@
+from src.Character import Character
 ''' 
-This class is the child class to Character that makes up players in game.
-Keywords and attributes:
+this class is the child class to character that makes up players in game.
+keywords and attributes:
     level_up(self) - boolean function to check if the player levels up after a victory
     increase_level(self) - void function that increases level of the player
-    increase_xp(self, xpReward) - void function that increases xp of the player after victory
+    increase_xp(self, xpreward) - void function that increases xp of the player after victory
     increase_stats(self) - void function that increases stats of player after a level up
 '''
 class Player(Character):
-    def __init__(self, name: str):
-        self.name = name
+
+    def __init__(self, *args):
+        super().__init__(*args)
         
     def level_up_check(self) -> bool:
-        if(self.xp > 100):
+        if(self.experience > 100):
             return True
+        else:
+            return False
 
-    def increase_xp(self, xpReward: int):
-        self.xp += xpReward
+    def increase_xp(self, xpreward: int):
+        self.experience += xpreward
     
     def increase_stats(self):
         self.attack += (self.attack * .3) + 1
@@ -23,10 +27,10 @@ class Player(Character):
         self.hp += (self.attack * .6) + 3
         
     def increase_level(self):
-        if(level_up_check(self)):
+        if(self.level_up_check(self)):
             self.xp -= 100
             self.level += 1
-            increase_stats(self)
+            self.increase_stats(self)
 
 
 
