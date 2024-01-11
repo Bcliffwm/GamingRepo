@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/RPG Application/rpg_env/Scripts
+/RPG Application/rpg_env/Lib/site-packages
+/RPG Application/rpg_env/pyvenv.cfg
