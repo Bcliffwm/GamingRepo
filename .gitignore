@@ -1,2 +1,8 @@
-.vs
-*env
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/RPG Application/v17
+*.json
+*.sqlite
+/.vs/GamingRepo
