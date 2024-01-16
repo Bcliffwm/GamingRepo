@@ -1,4 +1,5 @@
 from src.Character import Character
+from src.Enemy import Enemy
 ''' 
 this class is the child class to character that makes up players in game.
 keywords and attributes:
@@ -18,8 +19,16 @@ class Player(Character):
         else:
             return False
 
+    def is_kill(self, other : Enemy):
+        if(other.is_dead() == True):
+            self.increase_xp(other.award_xp())
+    
     def increase_xp(self, xpreward: int):
         self.experience += xpreward
+        if(self.level_up_check()):
+            self.increase_stats()
+            self.increase_level()
+        
     
     def increase_stats(self):
         self.attack += (self.attack * .3) + 1
@@ -33,5 +42,9 @@ class Player(Character):
             self.increase_stats(self)
 
 
-
+    def attack_enemy(self, other : Enemy):
+        damage: int = other.defense - self.attack
+        other.receive_attack(damage)
+        self.is_kill(other)
+        
 

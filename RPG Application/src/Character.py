@@ -18,53 +18,44 @@ Key Methods:
     amount of damage sustained
     - is_dead(self) : Boolean to determine if hp of character is reduced to 0
 '''
-from multiprocessing.sharedctypes import Value
-from optparse import Values
 
 
 class Character:
-    #num_chars = 0 # tracker variable for number of characters initialized
     
     # Initialization function; Class Constructor
     def __init__(self, name: str, level: int = 1, exp: int = 0, atk: int = 1, defense: int = 1, hp:int = 1):
         # Class attributes
-        self.name = name
-        self.level = level
-        self.experience = exp
-        self.attack = atk
-        self.defense = defense
-        self.hp = hp
+        self.name : str = name
+        self.level : int = level
+        self.experience : int = exp
+        self.attack : int = atk
+        self.defense : int = defense
+        self.hp : int = hp
         
     # Show attributes
+    @classmethod
     def print_attributes(self):
         [print(val) for val in vars(self)]
-     
+    
+    @classmethod
     def print_info(self):
         print('Class information for: {}'.format(self.name))
         [print(val[0],":",val[1]) for val in vars(self).items() if val[0] != 'name']
         
     # Main function to check if character dies
+    @classmethod
     def is_dead(self):
-        if(self.hp == 0):
+        if(self.hp <= 0):
             return True
         else:
             return False
-
-    # Function for calculating damage output from playable character to enemy
-    def attack_enemy(self, other) -> int:
-        damage: int = self.attack - other.defense
-        return damage
-    
-    # Function for calculating damage output from enemy to playable character
-    def receive_attack(self, other) -> int:
-        damage: int = other.attack - self.defense
-        return damage
     
     # Function for calculating health point change after an attack
+    @classmethod
     def reduce_health(self, damage:int):
-        self.health -= damage
+        self.hp -= abs(damage)
     
     # Deconstructor function for class
     def __del__(self):
         print('Character: {} is deleted.'.format(self.name))
-        #num_chars -= 1
+        
