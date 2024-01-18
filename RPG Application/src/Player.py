@@ -41,10 +41,5 @@ class Player(Character):
             self.level += 1
             self.increase_stats(self)
 
-
-    def attack_enemy(self, other : Enemy):
-        damage: int = other.defense - self.attack
-        other.receive_attack(damage)
-        self.is_kill(other)
         
 

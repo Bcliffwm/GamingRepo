@@ -22,6 +22,9 @@ Key Methods:
 
 class Character:
     
+    __is_alive = True
+
+
     # Initialization function; Class Constructor
     def __init__(self, name: str, level: int = 1, exp: int = 0, atk: int = 1, defense: int = 1, hp:int = 1):
         # Class attributes
@@ -33,29 +36,26 @@ class Character:
         self.hp : int = hp
         
     # Show attributes
-    @classmethod
     def print_attributes(self):
         [print(val) for val in vars(self)]
     
-    @classmethod
     def print_info(self):
         print('Class information for: {}'.format(self.name))
         [print(val[0],":",val[1]) for val in vars(self).items() if val[0] != 'name']
         
     # Main function to check if character dies
-    @classmethod
     def is_dead(self):
         if(self.hp <= 0):
-            return True
-        else:
-            return False
+            self.__is_alive = False
     
     # Function for calculating health point change after an attack
-    @classmethod
     def reduce_health(self, damage:int):
         self.hp -= abs(damage)
-    
+        
     # Deconstructor function for class
     def __del__(self):
         print('Character: {} is deleted.'.format(self.name))
-        
+        # pass
+
+    def attack_other(self, other):
+        other.reduce_health(self.attack)
