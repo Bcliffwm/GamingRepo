@@ -1,3 +1,4 @@
+import Character
 ''' 
 This class is the child class to Character that makes up players in game.
 Keywords and attributes:
@@ -23,10 +24,10 @@ class Player(Character):
         self.hp += (self.attack * .6) + 3
         
     def increase_level(self):
-        if(level_up_check(self)):
+        if(self.level_up_check()):
             self.xp -= 100
             self.level += 1
-            increase_stats(self)
+            self.increase_stats()
 
 
 
