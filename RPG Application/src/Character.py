@@ -58,7 +58,7 @@ class Character:
         
     # Deconstructor function for class
     def __del__(self):
-        #print('Character: {} is deleted.'.format(self.name))
+        print('Character: {} is deleted.'.format(self.name))
         pass
 
     def attack_other(self, other):
