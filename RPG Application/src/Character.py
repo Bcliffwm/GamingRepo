@@ -30,7 +30,7 @@ class Character:
         # Class attributes
         self.name : str = name
         self.level : int = level
-        self.experience : int = exp
+        self.xp : int = exp
         self.attack : int = atk
         self.defense : int = defense
         self.hp : int = hp
@@ -46,7 +46,10 @@ class Character:
     # Main function to check if character dies
     def is_dead(self):
         if(self.hp <= 0):
-            self.__is_alive = False
+            __is_alive = False
+            return True
+        else:
+            return False
     
     # Function for calculating health point change after an attack
     def reduce_health(self, damage:int):
@@ -54,8 +57,8 @@ class Character:
         
     # Deconstructor function for class
     def __del__(self):
-        print('Character: {} is deleted.'.format(self.name))
-        # pass
+        #print('Character: {} is deleted.'.format(self.name))
+        pass
 
     def attack_other(self, other):
-        other.reduce_health(self.attack)
+        other.reduce_health(self.attack - other.defense)

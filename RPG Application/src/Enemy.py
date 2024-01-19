@@ -14,6 +14,8 @@ class Enemy(Character):
     def award_xp(self):
         if(self.is_dead()):
             return self.xpReward
+        else:
+            return 0
     
     # Overloadded method - prints the xpReward in addition for enemy
     def print_info(self):
