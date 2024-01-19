@@ -29,15 +29,25 @@ class Player(Character):
         
     
     def increase_stats(self):
-        self.attack += round((self.attack * .3)) + 1
-        self.defense += round((self.attack * .3)) + 1
-        self.hp += round((self.attack * .6)) + 3
+        temp = self.attack
+        self.attack += round((temp * .3)) + 1
+        self.defense += round((temp * .3)) + 1
+        self.hp += round((temp * .6)) + 3
         
     def increase_level(self):
         if(self.level_up_check()):
             self.xp -= 100
             self.level += 1
             self.increase_stats()
+       
+    def print_info(self, file):
+        print('Name: {}'.format(self.name), file=file)
+        print('Is alive: {}'.format(not self.is_dead()), file=file)
+        [print(val[0],":",val[1], file=file) for val in vars(self).items() if val[0] != 'name']
+        
+    def save(self):
+        with open('savefile.txt', 'r+') as f:
+            self.print_info(f)
 
         
 

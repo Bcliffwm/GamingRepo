@@ -41,6 +41,7 @@ class Character:
     
     def print_info(self):
         print('Class information for: {}'.format(self.name))
+        print("Is alive : {}".format(self.__is_alive))
         [print(val[0],":",val[1]) for val in vars(self).items() if val[0] != 'name']
         
     # Main function to check if character dies
@@ -62,3 +63,4 @@ class Character:
 
     def attack_other(self, other):
         other.reduce_health(self.attack - other.defense)
+        
