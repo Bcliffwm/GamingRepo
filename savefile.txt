@@ -1,0 +1,7 @@
+Name: My_Heroine
+Is alive: True
+level : 20
+xp : 100
+attack : 50
+defense : 50
+hp : 120
