@@ -13,6 +13,9 @@ if __name__ == '__main__':
         else:
             p = Player.Player('My_Heroine', 20, 100, 50, 50, 120)
             p4 = Enemy.Enemy('Enemy 4', 10, 10, 55, 30, 55)
+
+            print('Play Game!')
+            Battle.combat(p, p4)
         
     print('Powering down...')
     

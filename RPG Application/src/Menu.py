@@ -5,7 +5,7 @@ def display_menu():
     
     selection = ""
     while(selection == "" or selection != '1'):
-        selection = input('Make a selection: \na) Play game\ns)Save Character\nq)Quit Game\n')
+        selection = input('Make a selection: \na) Play game\ns)Save Character\nq)Quit Game\n\n')
         if(selection.lower() == 'q' or selection.lower() == 'a'):
             return selection
     
